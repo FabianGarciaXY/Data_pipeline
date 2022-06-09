@@ -1,0 +1,18 @@
+{
+  "name": "data_pipeline",
+  "version": "1.0.0",
+  "description": "Prueba tecnica backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "NodeJs",
+    "Express",
+    "Jest",
+    "Docker",
+    "npm"
+  ],
+  "author": "FabianGarciaXY",
+  "license": "ISC"
+}
