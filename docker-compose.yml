@@ -10,3 +10,20 @@ services:
       - "4000:4000"
     environment:
       - EXTERNAL_PORT=4000
+    depends_on:
+      - portgres_db
+  
+  portgres_db: 
+    container_name: portgres_db
+    image: "postgres:12"
+    ports:
+      - "5433:5433"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=metrobuses_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: {}
