@@ -4,7 +4,7 @@
   "description": "Prueba tecnica backend",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node src/server.js"
   },
   "keywords": [
     "NodeJs",

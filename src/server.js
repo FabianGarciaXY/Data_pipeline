@@ -1,10 +1,7 @@
 const routes = require('./routes/routes');
 const express = require('express');
 
-
-//
 // Aqui se inicializa el servidor usando el framework express
-//
 
 const port = process.env.PORT || 4000;
 const app = express();
