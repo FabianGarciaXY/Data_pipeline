@@ -10,6 +10,10 @@ services:
       - "4000:4000"
     environment:
       - EXTERNAL_PORT=4000
+      - PGDATABASE=metrobuses_db
+      - PGUSER=postgres
+      - PGPASSWORD=password
+      - PGHOST=portgres_db
     depends_on:
       - portgres_db
   
