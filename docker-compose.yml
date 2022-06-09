@@ -3,7 +3,7 @@ version: '3.9'
 services:
   node_server:
     container_name: node_container
-    image: myapp:v1
+    image: myapp:v2
     build: 
       context: .
     ports:
