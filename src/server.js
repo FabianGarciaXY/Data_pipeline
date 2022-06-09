@@ -1,4 +1,4 @@
-const routes = require('./routes/routes');
+const routes = require('./routes/router');
 const express = require('express');
 
 // Aqui se inicializa el servidor usando el framework express
