@@ -9,11 +9,11 @@ app.use(routes);
 
 
 try {
-    app.listen(port, () => {
-        console.log(`Server running on port ${port}`)
-    });
+	app.listen(port, () => {
+		console.log(`Server running on port ${port}`);
+	});
 } catch (err) {
-    console.log(err);
+	console.log(err);
 }
 
 
