@@ -1,10 +1,10 @@
-const User = require('../models/model');
+const Metrobuses = require('../models/model');
 
 let counter = 0;
 
-exports.app = async (req, res) => {
+exports.app = (req, res) => {
 	try {
-		res.json({ 'message': `This server has been visited ${counter++} times` });
+		return res.status(200).json({ 'message': `This server has been visited ${counter++} times` });
 	} catch (err) {
 		return res.status(500).json(err);
 	}
@@ -12,8 +12,8 @@ exports.app = async (req, res) => {
 
 exports.getAllVehicles = async (req, res) => {
 	try {
-		const allData = await User.findAll();
-		return res.status(200).json(allData);
+		const allVehicles = await Metrobuses.findAll();
+		return res.status(200).json(allVehicles);
 	} catch (err) {
 		return res.status(500).json(err);
 	}
