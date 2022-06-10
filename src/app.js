@@ -12,6 +12,7 @@ app.use(routes);
  
 (async () => {
 	try {
+		
 		await sequelize.sync(
 			{force: false}
 		);
