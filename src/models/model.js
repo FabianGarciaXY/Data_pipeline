@@ -18,11 +18,11 @@ const Metrobuses = db.define('metrobuses', {
 		allowNull: false
 	},
 	latitude: {
-		type: DataTypes.DECIMAL(4,20),
+		type: DataTypes.DECIMAL,
 		allowNull: false
 	},
 	longitude: {
-		type: DataTypes.DECIMAL(4,20),
+		type: DataTypes.DECIMAL,
 		allowNull: false
 	},
 	geographic_point: {
