@@ -33,7 +33,7 @@ const getVehicleLocationById = async (req, res) => {
 };
 
 // Obtener una lista de alcaldías disponibles
-exports.getAvailableTowns = async (req, res) => {
+const getAvailableTowns = async (req, res) => {
 	try {
 		const allTowns = await Metrobuses.findAll();
 		return res.status(200).json(allTowns);
