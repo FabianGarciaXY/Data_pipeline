@@ -7,8 +7,8 @@ app.use('/', router);
 
 describe('Good Home Routes', () => {
 
-    test('responds to /', async () => {
-      const res = await request(app).get('/');
-      expect(res.statusCode).toBe(200);
-    })
+	test('responds to /', async () => {
+		const res = await request(app).get('/');
+		expect(res.statusCode).toBe(200);
+	});
 });
