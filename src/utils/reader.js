@@ -5,6 +5,9 @@ const url = 'https://datos.cdmx.gob.mx/api/3/action/datastore_search?resource_id
 
 (async function getData() {
 	const response = await axios.get(url);
-	const data = response.data.result;
-	console.log(data)
+	const data = response.data.result.records;
+
+	data.forEach(element => {
+		console.log(element);
+	});
 })();
