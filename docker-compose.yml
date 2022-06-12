@@ -14,6 +14,7 @@ services:
       - PGUSER=postgres
       - PGPASSWORD=password
       - PGHOST=portgres_db
+      - GOOGLEMAPSKEY=AIzaSyCZgr16JUc3aW1jeuYam3FaWHW89PfY08Q
     depends_on:
       - portgres_db
   
