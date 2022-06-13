@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = require('./routes/router');
 const sequelize = require('./utils/database');
-const Metrobuses = require('./models/model');
+
 
 // Aqui se inicializa el servidor usando el framework express
 
