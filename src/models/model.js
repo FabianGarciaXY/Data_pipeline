@@ -2,35 +2,27 @@ const { DataTypes } = require('sequelize');
 const db = require('../utils/database');
 
 
-const Metrobuses = db.define('metrobuses', {
+const Vehicle = db.define('metrobuses', {
 	id: {
 		type: DataTypes.INTEGER,
 		allowNull: false,
 		primaryKey: true,
-		autoIncrement: true
+		autoIncrement: true,
 	},
-	vehicle_id: {
-		type: DataTypes.INTEGER,
-		allowNull: false
-	},
-	current_status: {
-		type: DataTypes.SMALLINT,
-		allowNull: false
-	},
-	latitude: {
-		type: DataTypes.DECIMAL,
-		allowNull: false
-	},
-	longitude: {
-		type: DataTypes.DECIMAL,
-		allowNull: false
-	},
-	geographic_point: {
-		type: DataTypes.STRING,
-		allowNull: false
-	},
-
+	vehicle_id: DataTypes.INTEGER,
+	vehicle_label: DataTypes.INTEGER,
+	current_status: DataTypes.SMALLINT,
+	latitude: DataTypes.DECIMAL,
+	longitude: DataTypes.DECIMAL,
+	position_speed: DataTypes.INTEGER,
+	position_odometer: DataTypes.INTEGER,
+	trip_schedule_relationship: DataTypes.INTEGER,
+	trip_id: DataTypes.INTEGER,
+	trip_start_date: DataTypes.STRING,
+	trip_route_id: DataTypes.INTEGER,
+	adress: DataTypes.STRING,
+	delegation: DataTypes.STRING
 });
 
 
-module.exports = Metrobuses;
+module.exports = Vehicle;
