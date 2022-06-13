@@ -13,15 +13,10 @@ app.use(routes);
 
 (async () => {
 	try {
-		
-		await sequelize.sync(
-			{force: false}
-		);
-
-		app.listen(port, () => {
-			console.log(`Server running on port ${port}`);
-		});
-	} catch (err) {
+		await sequelize.sync({force: true});
+		app.listen(port, () => console.log(`Server running on port ${port}`));
+	} 
+	catch (err) {
 		console.log(err);
 	}
 })();
