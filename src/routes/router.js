@@ -2,12 +2,12 @@ const controller = require('./../controllers/controller');
 const router = require('express').Router();
 
 
-router
-	.get('/', controller.app)
-	.get('/metrobuses', controller.getAvailableVehicles)
-	.get('/metrobuses/:id', controller.getVehicleLocationById)
-	.get('/alcaldias', controller.getAvailableTowns)
-	.get('/alcaldias/:name', controller.getVehiclesByTown);
+// Defining the endpoints for server
+router.get('/', controller.root);
+router.get('/metrobuses', controller.getAvailableVehicles);
+router.get('/metrobuses/:id', controller.getVehicleLocationById);
+router.get('/alcaldias', controller.getAvailableTowns);
+router.get('/alcaldias/:name', controller.getVehiclesByTown);
 
-
+// Exporting routes to use in main module
 module.exports = router;
