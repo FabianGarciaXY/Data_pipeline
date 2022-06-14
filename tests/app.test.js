@@ -1,6 +1,6 @@
 const request = require('supertest');
 const express = require('express');
-const router = require('../routes/router');
+const router = require('../src/routes/router');
 
 const app = new express();
 app.use('/', router);
