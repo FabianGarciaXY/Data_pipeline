@@ -16,7 +16,7 @@
 
 ---
 
-## Descripción <a id="id0"></a>
+## Descripción :pencil:<a id="id0"></a>
 
 <p>
 Se solicitó desarrollar un pipeline de análisis de datos utilizando los datos abiertos de la Ciudad de México
@@ -31,7 +31,7 @@ consultado mediante un API Rest filtrando por unidad o por alcaldía con las sig
 
 ---
 
-## Diseño del proyecto <a id="id1"></a> :writing_hand:
+## Diseño del proyecto :art:<a id="id1"></a>
 
 Para la solución del problema se realizo un diseño del flujo de datos obtenidos desde los datos abiertos de metrobuses de CDMX para que finalmente puedan ser expuestos mediante un API. <br><br>
 
@@ -59,18 +59,26 @@ Para la solución del problema se realizo un diseño del flujo de datos obtenido
 ```mermaid
 graph TD
 
-    A1(( METROBUSES API ))--Feth-data-->B1{{ READER }}
-    A2((GOOGLE GEOCODER))--Reverse geocoding-->B1
-    B1-->D1(MODEL)
-    D1-->F1[(POSTGRES METROBUSES_DB)]
+    %% Metrobuses a Reader
+    A1(("METROBUSES <br> API"))--Feth-data-->B1(["READER"])
+    %% Geocoder a Reader
+    A2(("GOOGLE <br> GEOCODER <br> API"))--Delegation-->D1
+    %% Reader a Geocoder
+    B1--"Reverse <br> Geocoding"-->A2
+    %% Reader a Model
+    B1--"Vehicles data"-->D1("MODEL")
+    
 
-    F1--> | Queryng | G1([CONTROLLER])
-    G1 ---> |Endpoints| H1([ROUTER])
-    H1 --> I1{SERVER}
+    %% Database
+    D1--"Saving data"-->F1[(" <br>POSTGRES <br>METROBUSES_DB <br>")]
+    F1---|Queryng|G1(CONTROLLER)
+    G1 --"Endpoints"--> I1{ROUTER}
+
+    %% Endpoints
     I1 --> |Get|-E1{{/Metrobuses}}
-    I1 --> |Get|-E2{{/Metrubuses/id}}
+    I1 --> |Get|-E2{{/Metrubuses/:id}}
     I1 --> |Get|-E3{{/Alcaldias}}
-    I1 --> |Get|-E4{{/Alcaldias/nombre}}
+    I1 --> |Get|-E4{{/Alcaldias/:nombre}}
 ```
 
 
@@ -84,7 +92,7 @@ graph TD
 
 ---
 
-## Instalacion y Ejecución <a id="id2"></a>
+## Instalacion y Ejecución :wrench:<a id="id2"></a>
 
 Para desplegar el servicio se requiere unicamente contar con docker y docker compose y ejecutar la siguiente serie de pasos:
 
@@ -96,7 +104,7 @@ Para desplegar el servicio se requiere unicamente contar con docker y docker com
 
 ---
 
-## Demo <a id="id3"></a>
+## Demo :computer:<a id="id3"></a>
 
 Obtener una lista de unidades disponibles
 
