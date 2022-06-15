@@ -13,13 +13,13 @@ services:
       - PGDATABASE=metrobuses_db
       - PGUSER=postgres
       - PGPASSWORD=password
-      - PGHOST=portgres_db
+      - PGHOST=postgres_db
       - GOOGLEMAPSKEY=AIzaSyCZgr16JUc3aW1jeuYam3FaWHW89PfY08Q
     depends_on:
       - portgres_db
   
   portgres_db: 
-    container_name: portgres_db
+    container_name: postgres_db
     image: "postgres:12"
     ports:
       - "5433:5432"
