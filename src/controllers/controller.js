@@ -2,16 +2,16 @@ const Vehicle = require('../models/model');
 
 
 /*
- * This module contains the callback functions that will be executed
- * when the corresponding endopoints are requested. 
- * Above, the vehicle model is imported from src/models/model.js to perform database queries.
+ * Brief Description:
  *
+ * This module contains the callback functions that will be executed when the corresponding endopoints are requested. 
+ * Above, the 'Vehicle' model is imported from src/models/model.js to perform database queries.
+ * 
  *  
  * For each Function:
  * 
  * @Description: The objective is to handle the requests made to each enpoint.
- *
- * @param { req } is the object that holds the request data
+ * @param { req } is the object that holds the request data.
  * @param { res } is the object through which the requests will be answered.
  * @returns { JSON Object } will return the response with the data obtained from the database.
 */
