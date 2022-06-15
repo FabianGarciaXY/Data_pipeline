@@ -25,7 +25,7 @@ const Vehicle = db.define('metrobuses', {
 	position_odometer: DataTypes.INTEGER,
 	trip_schedule_relationship: DataTypes.INTEGER,
 	trip_id: DataTypes.INTEGER,
-	trip_start_date: DataTypes.STRING,
+	trip_start_date: DataTypes.INTEGER,
 	trip_route_id: DataTypes.INTEGER,
 	address: DataTypes.STRING,
 	delegation: DataTypes.STRING

@@ -62,16 +62,16 @@ const getVehicleLocationById = async (req, res) => {
 
 
 // Get a list of available delegations.
-const getAvailableTowns = async (req, res) => {
+const getAvailableDelegations = async (req, res) => {
 	try {
 		// We consulted the database for all available delegations.
-		const allTowns = await Vehicle.findAll({
+		const availableDelegations = await Vehicle.findAll({
 			attributes: ['delegation'],
 			where: {
-				trip_schedule_relationship: 0 // CHECK THIS!
+				trip_schedule_relationship: 0
 			}
 		});
-		return res.status(200).json(allTowns);
+		return res.status(200).json(availableDelegations);
 	} catch (err) {
 		return res.status(500).json(err);
 	}
@@ -79,10 +79,10 @@ const getAvailableTowns = async (req, res) => {
 
 
 // Obtain the list of units within a delegation.
-const getVehiclesByTown = async (req, res) => {
+const getVehiclesByDelegation = async (req, res) => {
 	try {
 		// The delegation is obtained as a request parameter and is used to query all units in that delegation.
-		const delegation = req.params.name;
+		const delegation = req.params.name.toLowerCase();
 		const vehicles = await Vehicle.findAll({
 			attributes: ['vehicle_id'],
 			where: {
@@ -102,6 +102,6 @@ module.exports = {
 	root,
 	getAvailableVehicles,
 	getVehicleLocationById,
-	getAvailableTowns,
-	getVehiclesByTown
+	getAvailableDelegations,
+	getVehiclesByDelegation
 };
