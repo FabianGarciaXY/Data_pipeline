@@ -50,13 +50,11 @@ Para la solución del problema se realizo un diseño del flujo de datos obtenido
 
 **Diagrama de solución** <a id="id1.2"></a>
 
-![Test]()
+![Diagram](./src/assets/diagram.png)
 
 <br>
 
 **Diseño de backend y endpoints** <a id="id1.3"></a>
-
-Diagrama del backend
 
 ```mermaid
 graph TD
