@@ -1,6 +1,6 @@
-# **Prueba técnica: Data pipeline**
+# **Prueba técnica: Data pipeline :star2:**
 
-*Prueba tecnica como parte del proceso para desarrollador Backend con Scala en Ankor.*
+*Prueba tecnica como parte del proceso para desarrollador Backend con Scala en Ankor.* :man_technologist:
 
 ---
 
@@ -24,30 +24,29 @@ correspondientes a las ubicaciones de las unidades del metrobús para que pueda 
 consultado mediante un API Rest filtrando por unidad o por alcaldía con las siguientes consideraciones:
 </p>
 
-* ***Obtener una lista de unidades disponibles***
-* ***Consultar la ubicación de una unidad dado su ID***
-* ***Obtener una lista de alcaldías disponibles***
-* ***Obtener la lista de unidades que se encuentren dentro de una alcaldía***
+* *Obtener una lista de unidades disponibles*
+* *Consultar la ubicación de una unidad dado su ID*
+* *Obtener una lista de alcaldías disponibles*
+* *Obtener la lista de unidades que se encuentren dentro de una alcaldía*
 
 ---
 
-## Diseño del proyecto <a id="id1"></a>
+## Diseño del proyecto <a id="id1"></a> :writing_hand:
 
 Para la solución del problema se realizo un diseño del flujo de datos obtenidos desde los datos abiertos de metrobuses de CDMX para que finalmente puedan ser expuestos mediante un API. <br><br>
 
 **Dependencias y tecnologías** <a id="id1.1"></a>
-
-Se usaron las siguientes herramientas:
-
 * *Node.JS*
 * *Postgres*
 * *Express*
 * *Docker*
+* *Pg*
+* *Geocoder*
 * *Axios*
 * *Jest*
-* *Sequelize ORM*
-* *etc.*
-<br><br>
+* *Sequelize*
+
+<br>
 
 **Diagrama de solución** <a id="id1.2"></a>
 
@@ -59,22 +58,21 @@ Se usaron las siguientes herramientas:
 
 Diagrama del backend
 
->FIX THIS
-
 ```mermaid
 graph TD
-    
-    A[(API Metrobuses)] --> | Data | B([READER])
-    B ---> |Metrobuses Model| X([Model]) 
-    B --> |Controller| Y([Controller])
-    X --> D([CONTROLLER])
-    Y --> D
-    D === S{SERVER}
-    S --> |Get|-E1{{Endpoint1}}
-    S --> |Get|-E2{{Endpoint2}}
-    S --> |Get|-E3{{Endpoint3}}
-    S --> |Get|-E3{{Endpoint4}}
- 
+
+    A1(( METROBUSES API ))--Feth-data-->B1{{ READER }}
+    A2((GOOGLE GEOCODER))--Reverse geocoding-->B1
+    B1-->D1(MODEL)
+    D1-->F1[(POSTGRES METROBUSES_DB)]
+
+    F1--> | Queryng | G1([CONTROLLER])
+    G1 ---> |Endpoints| H1([ROUTER])
+    H1 --> I1{SERVER}
+    I1 --> |Get|-E1{{/Metrobuses}}
+    I1 --> |Get|-E2{{/Metrubuses/id}}
+    I1 --> |Get|-E3{{/Alcaldias}}
+    I1 --> |Get|-E4{{/Alcaldias/nombre}}
 ```
 
 
