@@ -1,13 +1,12 @@
-const Vehicle = require('../models/model');
-
-/* 
+/*
+* Here is defined the function to execute for root rout 
+*
 * Function:
-* 
 * @Description: This function just return a message when route / is request
 */
 
 
-// Exporting root route "/" function callback".
+// Exporting function.
 exports.root = (req, res) => {
 	try {
 		return res.status(200).json({ 'message': 'Hi world!'});

@@ -8,7 +8,7 @@ const sequelize = require('./utils/database');
 
 
 // The server port is defined, and express is executed.
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 const app = express();
 app.use(routes);
 

@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-const Vehicle = require('../models/model');
+const Vehicle = require('../models/vehicles.model');
 const gecoder = require('geocoder');
 
 

@@ -1,4 +1,4 @@
-const Vehicle = require('../models/model');
+const Vehicle = require('../models/vehicles.model');
 
 /*
  * This module contains the callback functions that will be executed when the endpoints related to vehicles are requested. 
@@ -48,6 +48,6 @@ const getVehicleLocationById = async (req, res) => {
 
 // Exporting functions
 module.exports = {
-    getAvailableVehicles,
-    getVehicleLocationById
-}
+	getAvailableVehicles,
+	getVehicleLocationById
+};

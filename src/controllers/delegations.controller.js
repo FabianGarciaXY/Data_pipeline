@@ -1,4 +1,4 @@
-const Vehicle = require('../models/model');
+const Vehicle = require('../models/vehicles.model');
 
 /*
  * This module contains the callback functions that will be executed when the endpoints related to delegations are requested. 
@@ -50,6 +50,6 @@ const getVehiclesByDelegation = async (req, res) => {
 
 
 module.exports = {
-    getAvailableDelegations,
-    getVehiclesByDelegation
-}
+	getAvailableDelegations,
+	getVehiclesByDelegation
+};
