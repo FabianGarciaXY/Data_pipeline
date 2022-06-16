@@ -1,4 +1,6 @@
-const controller = require('./../controllers/controller');
+const rootController = require('./../controllers/root.controller');
+const vehiclesController = require('./../controllers/vehicles.controller');
+const delegationController = require('./../controllers/delegations.controller');
 const router = require('express').Router();
 
 
@@ -13,11 +15,11 @@ d*/
 
 
 // Defining the endpoints for server
-router.get('/', controller.root);
-router.get('/metrobuses', controller.getAvailableVehicles);
-router.get('/metrobuses/:id', controller.getVehicleLocationById);
-router.get('/alcaldias', controller.getAvailableDelegations);
-router.get('/alcaldias/:name', controller.getVehiclesByDelegation);
+router.get('/', rootController.root);
+router.get('/metrobuses', vehiclesController.getAvailableVehicles);
+router.get('/metrobuses/:id', vehiclesController.getVehicleLocationById);
+router.get('/alcaldias', delegationController.getAvailableDelegations);
+router.get('/alcaldias/:name', delegationController.getVehiclesByDelegation);
 
 
 // Exporting routes to use in main module

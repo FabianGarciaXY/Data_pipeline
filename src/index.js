@@ -20,7 +20,7 @@ app.use(routes);
 		await sequelize.sync({force: true});
 		getData();
 
-		app.listen(port, () => console.log(`Server running on port`, port));
+		app.listen(port, () => console.log('Server running on port', port));
 	} catch (err) {
 		console.log(err);
 	}
