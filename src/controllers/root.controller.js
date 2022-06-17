@@ -1,8 +1,6 @@
 /*
-* Here is defined the function to execute for root rout 
-*
-* Function:
-* @Description: This function just return a message when route / is request
+ * Here is defined the function to execute for root route.  
+ * @Description: This function just return a message when route / is request
 */
 
 

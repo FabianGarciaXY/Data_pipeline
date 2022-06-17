@@ -1,22 +1,23 @@
 const Vehicle = require('../models/vehicles.model');
 
+
 /*
- * This module contains the callback functions that will be executed when the endpoints related to delegations are requested. 
- * Above, the 'Vehicle' model is imported from src/models/model.js to for database queries.
+ * This module contains the callback functions that will be executed when the endpoints for delegations are requested. 
+ * The Vehicle model is imported to perform database queries.
  *
  * For each Function:
- * 
- * @Description: The objective is to handle the requests made to each enpoint.
+ *
+ * @Description: Handle the requests made to each enpoint.
  * @param { req } is the object that holds the request data.
  * @param { res } is the object through which the requests will be answered.
- * @returns { JSON Object } will return the response with the data obtained from the database.
+ * @returns { JSON Object } the JSONresponse with the data obtained from the database.
 */
 
 
 // Get a list of available delegations.
 const getAvailableDelegations = async (req, res) => {
 	try {
-		// We consulted the database for all available delegations.
+		// The database is queried for all available delegations
 		const availableDelegations = await Vehicle.findAll({
 			attributes: ['delegation'],
 			where: {
@@ -49,6 +50,7 @@ const getVehiclesByDelegation = async (req, res) => {
 
 
 
+// Exporting the functions for use them in router.
 module.exports = {
 	getAvailableDelegations,
 	getVehiclesByDelegation

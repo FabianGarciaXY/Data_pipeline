@@ -1,11 +1,11 @@
 const Vehicle = require('../models/vehicles.model');
 
 /*
- * This module contains the callback functions that will be executed when the endpoints related to vehicles are requested. 
-
+ * This module contains the callback functions that will be executed when the endpoints for vehicles are requested. 
+ *
  * For each Function:
  * 
- * @Description: The objective is to handle the requests made to each enpoint.
+ * @Description: Handle the requests made to each enpoint.
  * @param { req } is the object that holds the request data.
  * @param { res } is the object through which the requests will be answered.
  * @returns { JSON Object } will return the response with the data obtained from the database.
