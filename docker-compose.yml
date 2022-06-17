@@ -9,12 +9,14 @@ services:
     ports:
       - "4000:4000"
     environment:
+      - PORT=4000
       - EXTERNAL_PORT=4000
       - PGDATABASE=metrobuses_db
       - PGUSER=postgres
       - PGPASSWORD=password
       - PGHOST=postgres_db
       - GOOGLEMAPSKEY=AIzaSyCZgr16JUc3aW1jeuYam3FaWHW89PfY08Q
+      - VEHICLESAPI=https://datos.cdmx.gob.mx/api/3/action/datastore_search?resource_id=ad360a0e-b42f-482c-af12-1fd72140032e&limit=3
     depends_on:
       - portgres_db
   
