@@ -3,7 +3,7 @@ const db = require('../utils/database');
 
 
 /*
- * In this module we define the data model to be stored in postgres using the Sequelize ORM.
+ * In this module is defined the data model to be stored in postgres using the Sequelize ORM.
  * The data obtained from the metrobuses API is kept and 3 more fields are added: 'id', 'address' and 'delegation'.
 */
 
@@ -16,6 +16,7 @@ const Vehicle = db.define('metrobuses', {
 		primaryKey: true,
 		autoIncrement: true,
 	},
+	// These fields are defined in a single line since only one property is defined for them.
 	vehicle_id: DataTypes.INTEGER,
 	vehicle_label: DataTypes.INTEGER,
 	current_status: DataTypes.SMALLINT,
@@ -32,5 +33,5 @@ const Vehicle = db.define('metrobuses', {
 });
 
 
-// It is exported for use in other modules such as the controller.
+// The model is exported
 module.exports = Vehicle;
