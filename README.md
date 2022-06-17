@@ -10,7 +10,6 @@
   * [Dependencias y tecnologías](#id1.1)
   * [Diagrama de solución](#id1.2)
   * [Diseño de backend y endpoints](#id1.3)
-  * [Obtencion de ubicaciones](#id1.4)
 * [Instalacion y ejecución](#id2)
 * [Demo](#id3)
 
@@ -35,16 +34,17 @@ consultado mediante un API Rest filtrando por unidad o por alcaldía con las sig
 
 Para la solución del problema se realizo un diseño del flujo de datos obtenidos desde los datos abiertos de metrobuses de CDMX para que finalmente puedan ser expuestos mediante un API. <br><br>
 
-**Dependencias y tecnologías** <a id="id1.1"></a>
-* *Node.JS*
-* *Postgres*
-* *Express*
-* *Docker*
-* *Pg*
-* *Geocoder*
-* *Axios*
-* *Jest*
-* *Sequelize*
+**Stack y dependencias** <a id="id1.1"></a>
+* *[Node.JS](https://nodejs.org/en/)*
+* *[Postgres](https://www.postgresql.org/)*
+* *[Express](https://expressjs.com/)*
+* *[Docker](https://www.docker.com/)*
+* *[Pg(Node-Postgres)](https://node-postgres.com/)*
+* *[Geocoder](https://www.npmjs.com/package/geocoder)*
+* *[Axios](https://axios-http.com/docs/intro)*
+* *[Jest](https://jestjs.io/)*
+* *[Dotenv](https://www.npmjs.com/package/dotenv)*
+* *[Sequelize](https://sequelize.org/)*
 
 <br>
 
@@ -60,33 +60,31 @@ Para la solución del problema se realizo un diseño del flujo de datos obtenido
 graph TD
 
     %% Metrobuses a Reader
-    A1(("METROBUSES <br> API"))--Feth-data-->B1(["READER"])
+    A1(("METROBUSES <br> API"))--Feth-data-->B1(["READER <br> SCRIPT"])
     %% Geocoder a Reader
     A2(("GOOGLE <br> GEOCODER <br> API"))--Delegation-->D1
     %% Reader a Geocoder
     B1--"Reverse <br> Geocoding"-->A2
     %% Reader a Model
-    B1--"Vehicles data"-->D1("MODEL")
+    B1--"Vehicles data"-->D1("DATA MODEL")
     
 
     %% Database
-    D1--"Saving data"-->F1[(" <br>POSTGRES <br>METROBUSES_DB <br>")]
-    F1---|Queryng|G1(CONTROLLER)
-    G1 --"Endpoints"--> I1{ROUTER}
+    D1--"Saving data"-->F1[(" <br>POSTGRES <br>METROBUSES DATABASE <br>")]
+    
+    %% Controllers
+    F1--"Vehicles queries"----G1(DELEGATIONS <br> CONTROLLER)
+    F1--"Delegation queries"----G2(VEHICLES <br> CONTROLLER)
+
+    G2 --"Endpoints"-->I1
+    G1 --"Endpoints"--> I1{API <br> ROUTER}
 
     %% Endpoints
-    I1 --> |Get|-E1{{/Metrobuses}}
-    I1 --> |Get|-E2{{/Metrubuses/:id}}
-    I1 --> |Get|-E3{{/Alcaldias}}
-    I1 --> |Get|-E4{{/Alcaldias/:nombre}}
+    I1 --> |Get|-E1([/Metrobuses])
+    I1 --> |Get|-E2([/Metrubuses/:id])
+    I1 --> |Get|-E3([/Alcaldias])
+    I1 --> |Get|-E4(["/Alcaldias/:nombre"])
 ```
-
-
-<br>
-
-
-**Obtención de ubicaciones** <a id="id1.4"></a>
-
 
 <br>
 
