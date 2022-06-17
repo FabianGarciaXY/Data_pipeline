@@ -19,7 +19,7 @@ const getVehiclesData = async (url) => {
 // @param [ data ] an object containing the data fetched from Metrubuses API through getVehiclesData Function.
 // @returns [ array ] an array of latitude and longitude coordinates.
 const getCoordinates = (data) => {
-	return data.map(vehicle => coords = { lat: vehicle['position_latitude'], long: vehicle['position_longitude'] });
+	return data.map(vehicle => coordinates = { lat: vehicle['position_latitude'], long: vehicle['position_longitude'] });
 };
 
 
@@ -68,10 +68,10 @@ const saveVehiclesDelegations = (coords, geocoderConfig) => {
 					where: { latitude: coord.lat }
 				});
 			} else if (err) {
-				throw new Error(err)
+				throw new Error(err);
 			}
-			},
-			geocoderConfig  // Geocoder configuration
+		},
+		geocoderConfig  // Geocoder configuration
 		);
 	});
 };
