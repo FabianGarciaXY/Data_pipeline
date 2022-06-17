@@ -23,12 +23,11 @@ const getData = async (url, geocoderConfig) => {
 
 	const coordinates = await getCoordinates(vehiclesData);
 	saveVehiclesDelegations(coordinates, geocoderConfig);
-}
+};
 
 
 // Exporting function
 module.exports = {
-	vehiclesApiUrl,
 	getData,
 	geocoderConfig
 };
