@@ -26,6 +26,14 @@ const getCoordinates = (data) => {
 };
 
 
+// @Description: Function to normalize and remove accents from strings.
+// @param "str" a string such as an address.
+// @returns { string } a string normalized.
+const toNormalForm = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+};
+
+
 // @Description: This function saves the vehicles data in the metrobuses table of Metrobuses_db database.
 // @param [ vehiclesData ] an array of vehicles object obtained with getVehiclesData function.
 const saveVehiclesData = (vehiclesData) => {
@@ -63,7 +71,7 @@ const saveVehiclesDelegations = (coords, geocoderConfig) => {
 			if (data) {
 				let address = data['results'][0]['formatted_address'];
 				let addressComponents = address.split(', ');
-				let delegation = addressComponents[addressComponents.length - 4].toLowerCase();
+				let delegation = toNormalForm(addressComponents[addressComponents.length - 4].toLowerCase());
 
 				// Using the Vehicle model, the metrobuses table is updated with its corresponding addres and delegations.
 				await Vehicle.update({
@@ -74,7 +82,7 @@ const saveVehiclesDelegations = (coords, geocoderConfig) => {
 					where: { latitude: coord.lat }
 				});
 			} else if (err) {
-				throw new Error('Location not found');
+				console.error('Location not found');
 			}
 		},
 		// Geocoder configuration(API key)
