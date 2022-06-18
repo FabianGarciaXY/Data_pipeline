@@ -37,6 +37,7 @@ const saveVehiclesData = (vehiclesData) => {
 			current_status: vehicle['vehicle_current_status'],
 			latitude: vehicle['position_latitude'],
 			longitude: vehicle['position_longitude'],
+			geographic_point: vehicle['geographic_point'],
 			position_speed: vehicle['position_speed'],
 			position_odometer: vehicle['position_odometer'],
 			trip_schedule_relationship: vehicle['trip_schedule_relationship'],
@@ -73,7 +74,7 @@ const saveVehiclesDelegations = (coords, geocoderConfig) => {
 					where: { latitude: coord.lat }
 				});
 			} else if (err) {
-				throw new Error(err);
+				throw new Error('Location not found');
 			}
 		},
 		// Geocoder configuration(API key)

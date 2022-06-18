@@ -22,6 +22,7 @@ const Vehicle = db.define('metrobuses', {
 	current_status: DataTypes.SMALLINT,
 	latitude: DataTypes.DECIMAL,
 	longitude: DataTypes.DECIMAL,
+	geographic_point: DataTypes.STRING,
 	position_speed: DataTypes.INTEGER,
 	position_odometer: DataTypes.INTEGER,
 	trip_schedule_relationship: DataTypes.INTEGER,
