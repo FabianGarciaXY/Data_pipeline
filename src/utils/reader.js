@@ -73,13 +73,16 @@ const saveVehiclesDelegations = (coords, geocoderConfig) => {
 				let addressComponents = address.split(', ');
 				let delegation = toNormalForm(addressComponents[addressComponents.length - 4].toLowerCase());
 
-				// Using the Vehicle model, the metrobuses table is updated with its corresponding addres and delegations.
+				// Using the Vehicle model, the metrobuses table is updated with its corresponding address and delegations.
 				await Vehicle.update({
 					address: address,
 					delegation: delegation
 				}, 
 				{
-					where: { latitude: coord.lat }
+					where: { 
+						latitude: coord.lat,
+						longitude: coord.long
+					}
 				});
 			} else if (err) {
 				console.error('Location not found');
