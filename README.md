@@ -52,7 +52,7 @@ Para la solución del problema se realizo un diseño del flujo de datos obtenido
 
 ![Diagram](./src/assets/diagram.png)
 
-<br>
+<br><br>
 
 **Diseño de backend y endpoints** <a id="id1.3"></a>
 
@@ -94,34 +94,54 @@ graph TD
 
 Para desplegar el servicio se requiere unicamente contar con docker y docker compose y ejecutar la siguiente serie de pasos:
 
-1. Primero
-2. Segundo
-3. Tercero
+
+```bash
+
+  # Clona el repositorio
+  git clone git@github.com:FabianGarciaXY/Data_pipeline.git
+
+  # Construye la imagen
+  cd Data_pipeline/ && docker compose build
+
+  # Corre los contenedores
+  docker compose up
+
+```
 
 <br>
 
 ---
 
-## Demo :computer:<a id="id3"></a>
+## Previsualización :computer:<a id="id3"></a>
+
+<br>
 
 Obtener una lista de unidades disponibles
 
-![gif1]()<br><br>
+![gif1](./src/assets/available_vehicles.gif)
+
+<br><br>
 
 Consultar la ubicación de una unidad dado su ID
 
-![gif2]()<br><br>
+![gif2](./src/assets/vehicles_by_id.gif)
+
+<br><br>
 
 Obtener una lista de alcaldías disponibles
 
-![gif3]()<br><br>
+![gif3](./src/assets/available_delegations.gif)
+
+<br><br>
 
 Obtener la lista de unidades que se encuentren dentro de una alcaldía
 
-![gif4]()<br><br>
+![gif4](./src/assets/vehicles_by_delegation.gif)
+
+<br><br>
 
 ---
 
 <br><br>
-Licencia ISC
-Gracias, :p
+
+Gracias :p
