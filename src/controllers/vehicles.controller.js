@@ -29,7 +29,9 @@ const getAvailableVehicles = async (req, res) => {
 				['vehicle_id', 'ASC']
 			]
 		});
+
 		return res.status(200).json(availableVehicles);
+		
 	} catch (err) {
 		return res.status(500).json(err);
 	}
