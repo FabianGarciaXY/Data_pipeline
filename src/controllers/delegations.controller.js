@@ -49,8 +49,6 @@ const getVehiclesByDelegation = async (req, res) => {
 			}
 		});	
 
-		console.log(vehicles);
-
 		if (vehicles.length > 0) {
 			return res.status(200).json(vehicles);
 		} else {
