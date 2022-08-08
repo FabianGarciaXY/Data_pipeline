@@ -1,6 +1,6 @@
 # **Prueba técnica: Data pipeline :star2:**
 
-*Prueba tecnica como parte del proceso para desarrollador Backend con Scala en Ankor.* :man_technologist:
+*Proyecto de pipeline de datos para obtener datos de las ubicaciones de autobuses de cdmx y mostrarlos en una API REST* :man_technologist:
 
 ---
 
