@@ -15,7 +15,7 @@ services:
       - PGUSER=postgres
       - PGPASSWORD=password
       - PGHOST=postgres_db
-      - GOOGLEMAPSKEY=AIzaSyCZgr16JUc3aW1jeuYam3FaWHW89PfY08Q
+      - GOOGLEMAPSKEY=AIzaSyCjtRQyvL3KN1zOu_StSl3kPTVHOuu5PJo
       - VEHICLESAPI=https://datos.cdmx.gob.mx/api/3/action/datastore_search?resource_id=ad360a0e-b42f-482c-af12-1fd72140032e&limit=1000
     depends_on:
       - portgres_db
@@ -24,7 +24,7 @@ services:
     container_name: postgres_db
     image: "postgres:12"
     ports:
-      - "5433:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
